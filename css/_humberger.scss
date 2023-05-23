@@ -1,0 +1,336 @@
+@charset "utf-8";
+
+
+
+.wrapper {
+  height: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+.overlay {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity .5s;
+}
+.overlay.open {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+main {
+  height: 100%;
+  min-height: 100vh;
+  padding: 0 50px;
+  background-color: #eee;
+  transition: all .5s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+main.open {
+  transform: translateX(-250px);
+}
+main h1 {
+  text-align: center;
+  font-weight: 500;
+}
+main p {
+  text-align: center;
+}
+.menu-trigger {
+  display: inline-block;
+  width: 30px;
+  height: 25px;
+  vertical-align: middle;
+  cursor: pointer;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  z-index: 100;
+  background: $no_color;
+  @include sp{
+    width: 50px;
+    top: 20px;
+    position: relative;
+    &:before{
+      content: '';
+      background-image: url(../img/common/img_decoration-menu_sp.png);
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      top: 0;
+      left: -6px;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+}
+
+.menu-trigger.active{
+      &:before{
+        display: none;
+      }
+}
+
+ .menu-trigger span {
+  display: inline-block;
+  box-sizing: border-box;
+  position: absolute;
+  left: 9%;
+  width: 80%;
+  height: 1px;
+  margin: auto;
+  background-color: $white;
+  transition: all .5s;
+  z-index: 9999999;
+}
+.menu-trigger.active span {
+  background-color: #fff;
+}
+.menu-trigger span:nth-of-type(1) {
+  top: 7px;
+}
+.menu-trigger.active span:nth-of-type(1) {
+  transform: translateY(10px) rotate(-45deg);
+}
+.menu-trigger span:nth-of-type(2) {
+  top: 12px;
+}
+.menu-trigger.active span:nth-of-type(2) {
+  opacity: 0;
+}
+.menu-trigger span:nth-of-type(3) {
+  bottom: 7px;
+}
+.menu-trigger.active span:nth-of-type(3) {
+  transform: translateY(0px) rotate(45deg);
+}
+
+nav {
+  width: 100vw;
+  height: 100%;
+  padding-top: 160px;
+  background-color: $white;
+  position: fixed;
+  left: -100%;
+  top: 0;
+  z-index: 10;
+  transition: all .5s;
+  opacity: 0;
+  z-index: -9;
+  @include sp{
+    padding-top: 72px;
+  }
+}
+nav.open {
+  height: 100%;
+  transform: translateZ(0);
+  opacity: 1;
+  z-index:  10;
+  left: 0;
+  background: -moz-linear-gradient(to right, $white, rgba(255, 255, 255, 0.9));
+  background: -webkit-linear-gradient(to right, $white, rgba(255, 255, 255, 0.9));
+  background: linear-gradient(to right, $white, rgba(255, 255, 255, 0.9));
+}
+nav{
+}
+
+nav.open {
+  ul{
+    display: flex;
+flex-wrap: wrap;
+flex-flow: column;
+width: 250px;
+margin-right: 100px;
+@include tab{
+  margin-right: 0px;
+}
+@include sp{
+  margin: 0px auto 30px;
+  width: 100%;
+}
+li {
+  color: $white;
+  text-align: left;
+  padding: 5px 0;
+  @include sp{
+    margin-bottom: 0px;
+  }
+  a{
+    font-size: 30px;
+    color: $black;
+    text-decoration:none;
+    font-family: $midashi_font_en;
+    @include sp{
+      font-size: 18px;
+      text-align: left;
+    }
+    &:active{
+      color:$grey;
+    }
+    &:visited{
+      color: $black;
+    }
+    &:hover{
+      color: $grey;
+    }
+  }
+}
+&.nav_sns{
+  flex-flow: initial;
+
+}
+}
+}
+
+
+/*==================================================
+　5-2-6 3本線が回転して×に
+===================================*/
+
+/*ボタン外側※レイアウトによってpositionや形状は適宜変更してください*/
+.menu-trigger{
+  position: relative;/*ボタン内側の基点となるためrelativeを指定*/
+  background:$black;
+  cursor: pointer;
+    top: 0px;
+    width: 40px;
+    height:40px;
+    &.active{background: $no_color;}
+}
+
+/*ボタン内側*/
+.menu-trigger span{
+    display: inline-block;
+    transition: all .4s;/*アニメーションの設定*/
+    position: absolute;
+    left: 11.5px;
+    height: .75px;
+    background: $white;
+  }
+
+
+.menu-trigger span:nth-of-type(1) {
+  top:14px;
+    width: 45%;
+}
+
+.menu-trigger span:nth-of-type(2) {
+  top:20px;
+    width: 35%;
+}
+
+.menu-trigger span:nth-of-type(3) {
+  top:26px;
+    width: 20%;
+    bottom: initial;
+}
+
+/*activeクラスが付与されると線が回転して×になる*/
+.menu-trigger.active span{
+  background: $black;
+}
+.menu-trigger.active span:nth-of-type(1) {
+    top: 13px;
+    left: 5px;
+    transform: translateY(6px) rotate(-135deg);
+    width: 31px;
+    bottom: initial;
+}
+
+.menu-trigger.active span:nth-of-type(2) {
+  opacity: 0;
+}
+
+.menu-trigger.active span:nth-of-type(3){
+    top: 25px;
+    left: 5px;
+    transform: translateY(-6px) rotate(135deg);
+    width: 31px;
+}
+
+
+
+
+
+
+
+
+.openbtn4{
+  position: relative;/*ボタン内側の基点となるためrelativeを指定*/
+  background:#D54884;
+  cursor: pointer;
+    width: 50px;
+    height:50px;
+  border-radius: 5px;
+}
+
+/*ボタン内側*/
+.openbtn4 span{
+    display: inline-block;
+    transition: all .4s;/*アニメーションの設定*/
+    position: absolute;
+    left: 14px;
+    height: 2px;
+    border-radius: 5px;
+  background: #fff;
+    width: 45%;
+  }
+
+
+.openbtn4 span:nth-of-type(1) {
+  top:13px;
+}
+
+.openbtn4 span:nth-of-type(2) {
+  top:19px;
+}
+
+.openbtn4 span:nth-of-type(3) {
+  top:25px;
+}
+
+.openbtn4 span:nth-of-type(3)::after {
+  content:"Menu";/*3つ目の要素のafterにMenu表示を指定*/
+  position: absolute;
+  top:5px;
+  left:-2px;
+  color: #fff;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+}
+
+/*activeクラスが付与されると線が回転して×になり、Menu⇒Closeに変更*/
+
+.openbtn4.active span:nth-of-type(1) {
+    top: 14px;
+    left: 18px;
+    transform: translateY(6px) rotate(-45deg);
+    width: 30%;
+}
+
+.openbtn4.active span:nth-of-type(2) {
+  opacity: 0;
+}
+
+.openbtn4.active span:nth-of-type(3){
+    top: 26px;
+    left: 18px;
+    transform: translateY(-6px) rotate(45deg);
+    width: 30%;
+}
+
+.openbtn4.active span:nth-of-type(3)::after {
+  content:"Close";/*3つ目の要素のafterにClose表示を指定*/
+    transform: translateY(0) rotate(-45deg);
+  top:5px;
+  left:4px;
+}

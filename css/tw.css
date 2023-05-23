@@ -1,0 +1,5 @@
+@charset "UTF-8";
+/*Twitter タイムライン*/
+.timeline-InformationCircle-widgetParent {
+  display: none!important;
+}

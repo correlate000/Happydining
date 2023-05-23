@@ -1,0 +1,221 @@
+@charset "UTF-8";
+
+/******************************/
+::selection {
+    background: $main_color;
+    color: $white;
+}
+
+//Firefox
+::-moz-selection {
+    background: $main_color;
+    color: $white;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  border: 0;
+  background: 0 0;
+  vertical-align: baseline;
+  font-size: 100%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:after, :before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html {
+  visibility: hidden;
+}
+html.wf-active {
+  visibility: visible;
+}
+body{
+  color: $black!important;
+  font: initial!important;
+  font-family: $main_font_jp;
+  font-weight: 400;
+  font-style: normal;
+  -webkit-text-size-adjust: 100%;
+  letter-spacing: 0.1em;
+}
+/* Avoid Chrome to see Safari hack */
+@supports (-webkit-touch-callout: none) {
+  body {
+    /* The hack for Safari */
+    height: -webkit-fill-available;
+  }
+}
+div, p, li, a, input{
+  transition: all ease-in-out .3s;
+  z-index: 0;
+}
+img{
+  max-width: 100%;
+  width: 100%;
+}
+
+hr {
+height: 1px;
+background-color: $main_color;
+border: none;
+color: $main_color;
+}
+
+a{
+  color: $main_color;
+  text-decoration:none;
+  z-index: 0;
+&:hover {
+    text-decoration-color: $white;
+    color: $main_color;
+    opacity: 0.7;
+}
+&:visited{
+    color: $black;
+}
+&:active{
+    color: $black;
+}
+}
+a:focus, *:focus { outline:none!important; }
+
+ul {
+    width: 100%;
+    margin: 0;
+}
+li {
+    display: inline-block;
+    position: relative;
+    margin-left: 0px;
+    a {
+    display: block;
+}
+}
+
+.inner{
+  max-width: 100%;
+  width: 100%;
+  margin: auto;
+  @include tab{
+  width: 100%;
+}
+@include sp{
+width: 345px;
+}
+}
+
+iframe{
+  width: 100%;
+}
+
+section{
+  max-width: 100%;
+  @include tab{
+    margin: auto;
+  }
+  @include sp{
+    margin: auto;
+  }
+}
+
+h1{
+  font-size: 54px;
+  font-family:  $main_font_jp;
+font-weight: 400;
+font-style: normal;
+}
+h2{
+  color: $main_color;
+  &:before {
+}
+@include sp{
+font-size: 30px;
+}
+}
+
+h3{
+  position: relative;
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 42px;
+}
+
+h4{
+  font-size: 18px;
+  font-weight: normal;
+  line-height: 1.3;
+}
+
+p{
+  font-size: 18px;
+  font-family: $main_font_jp;
+  line-height: 1;
+  max-width: 100%;
+}
+
+.hidden-pc{
+  display: none;
+  @include tab{
+    display: block;
+  }
+  @include sp{
+    display: block;
+  }
+}
+.hidden-tab{
+  @include tab{
+    display: none;
+  }
+  @include sp{
+    display: block;
+  }
+}
+
+.hidden-sp{
+  @include sp{
+    display: none;
+  }
+}
+
+
+/* 画面外にいる状態 */
+.fadein div, .fadein p{
+	opacity : 0.1;
+	transform : translate(0, 50px);
+	transition : all 2000ms;
+	}
+
+/* 画面内に入った状態 */
+.fadein.scrollin div, .fadein.scrollin p{
+	opacity : 1;
+	transform : translate(0, 0);
+}
+
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.text-right{
+  text-align: right!important;
+}
+.text-left{
+  text-align: left!important;
+}
+
+.flex{
+  display:-webkit-box;
+  display:-ms-flexbox;
+  display:flex;
+  flex-wrap: wrap;
+  -webkit-box-pack:justify;
+  -ms-flex-pack:justify;
+  justify-content:space-between;
+  max-width: 100%;
+  position: relative;
+}
