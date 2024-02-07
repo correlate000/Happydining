@@ -73,6 +73,7 @@ window.onload = function (){
       <?php get_template_part('parts-detail');?>
       <?php get_template_part('parts-btn_cta');?>
       <?php get_template_part('parts-btn_sns');?>
+      <?php get_template_part('parts-line');?>
 
     </div>
   </div>
@@ -98,11 +99,13 @@ window.onload = function (){
     <?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'link_before' => '<span itemprop="name">', 'link_after' => '</span>' ) ); ?>
     <div id="search"><?php get_search_form(); ?></div>
     <div class="btn hidden-pc">
-            <div class="flex">
+      <div class="flex">
         <?php get_template_part('parts-btn_cta');?>
         <?php get_template_part('parts-btn_sns');?>
+        <?php get_template_part('parts-line');?>
+
         <?php get_template_part('parts-detail');?>
-    </div>
+      </div>
     </div>
     </nav>
 

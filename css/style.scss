@@ -176,7 +176,7 @@ $ssp: 365px;  // スマホs
       }
     }
     .rightbox{
-      width: 63%;
+      width: 65%;
       text-align: right;
       height: 64px;
     }
@@ -207,7 +207,7 @@ p.detail{
 p.btn_cta,
 p.btn_tel{
   max-width: 50%;
-  width: 240px;
+  width: 180px;
   height: 64px;
   position: relative;
   @include pc{
@@ -224,7 +224,7 @@ p.btn_tel{
     line-height: 64px;
     text-align: center;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
     font-family: $midashi_font_jp;
     cursor: pointer;
@@ -237,11 +237,20 @@ p.btn_tel{
     }
   }
 }
+.btn_line{
+  display: flex;
+  align-items: center;
+}
+
+
 p.btn_sns{
   height: 68px;
   img{
     height: 100%;
-    width: 100%;
+    width: 75%;
+    text-align: center;
+    margin: auto;
+    display: block;
   }
 }
 p.btn_tel{
@@ -458,11 +467,7 @@ nav#menu{
     }
 
   }
-  @include sp{
-    nav#menu{
-      padding-top: 60px;
-    }
-  }
+
 
 
   nav#menu.show {
@@ -471,7 +476,27 @@ nav#menu{
   }
 
 }
-
+@include sp{
+  nav#menu{
+    padding-top: 60px;
+  }
+  p.btn_cta{
+    width: 47%;
+    margin-right: 3%!important;
+    a{
+      font-size: 14px;
+    }
+  }
+  .btn_sns{
+    width: 22%;
+    margin-right: 3%!important;
+  }
+  .btn_line{
+    width: 25%;
+    display: flex;
+    align-items: center;
+  }
+}
 
 /*frontpage*/
 .fv{
