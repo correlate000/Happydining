@@ -170,13 +170,13 @@ $ssp: 365px;  // スマホs
       padding: 15px 20px;
     }
     .leftbox{
-      width: 30%;
+      width: 27%;
       @include sp{
         width: 60%;
       }
     }
     .rightbox{
-      width: 65%;
+      width: 66.6%;
       text-align: right;
       height: 64px;
     }
@@ -240,6 +240,12 @@ p.btn_tel{
 .btn_line{
   display: flex;
   align-items: center;
+  width: auto;
+  height: 68px;
+  img{
+    height: 100%;
+    width: auto;
+  }
 }
 
 
@@ -492,7 +498,9 @@ nav#menu{
     margin-right: 3%!important;
   }
   .btn_line{
-    width: 25%;
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
     display: flex;
     align-items: center;
   }
