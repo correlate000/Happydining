@@ -2031,6 +2031,11 @@ section#Menu_Ordersheet{
       p.btn_cta,
       p.btn_tel{
         width: 50%;
+        @include sp{
+          width: 50%!important;
+          text-align: center!important;
+          margin-right: 0!important;
+        }
         a{
           font-size: 16px;
         }
@@ -2126,4 +2131,25 @@ section#Menu_Ordersheet{
     }
     .swiper-pagination-bullets {
       bottom: 30px!important;
+    }
+
+//フローティングバナー//
+    #floating-banner {
+      display: block!important;
+      position: fixed;
+      z-index: 9999;
+      margin-bottom: 0;
+      margin-left:650px;
+      width: 25vw;
+      height: auto;
+      opacity: 0; /* 初期状態の透明度 */
+    visibility: hidden; /* 要素を隠す */
+    transition: opacity 0.5s ease, visibility 0.5s ease; /* 透明度と表示状態のトランジションを設定 */
+      &:hover{
+        opacity: 0.9;
+      }
+      @include pc{
+        display: none!important;
+      }
+
     }
