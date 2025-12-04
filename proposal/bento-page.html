@@ -1,0 +1,1612 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>特養向け冷凍弁当 | ハッピーダイニング</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #573001;
+      --accent: #f96300;
+      --accent-light: #ffbb4a;
+      --bg: #fff0d5;
+      --bg-light: #fffaf0;
+      --white: #fff;
+      --text: #333;
+      --text-light: #666;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      vertical-align: bottom;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ========================================
+       ヘッダー
+    ======================================== */
+    .header {
+      background: var(--white);
+      padding: 15px 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .header-cta {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.3s;
+      font-size: 14px;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: #e55a00;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: var(--white);
+      color: var(--accent);
+      border: 2px solid var(--accent);
+    }
+
+    .btn-outline:hover {
+      background: var(--accent);
+      color: var(--white);
+    }
+
+    /* ========================================
+       ヒーローセクション
+    ======================================== */
+    .hero {
+      padding: 120px 0 60px;
+      background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-inner {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .hero-content {
+      flex: 1;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--white);
+      padding: 8px 20px;
+      border-radius: 5px;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .hero-subtitle {
+      color: var(--accent);
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .hero-title {
+      font-size: 32px;
+      color: var(--primary);
+      margin-bottom: 20px;
+      line-height: 1.5;
+      font-weight: 700;
+    }
+
+    .hero-title .highlight {
+      color: var(--accent);
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero-title .highlight::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 0;
+      right: 0;
+      height: 10px;
+      background: rgba(249, 99, 0, 0.2);
+      z-index: -1;
+    }
+
+    .hero-main-title {
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 30px;
+      line-height: 1.3;
+    }
+
+    .hero-main-title span {
+      color: var(--accent);
+    }
+
+    .hero-features {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .hero-feature {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 12px 20px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+
+    .hero-feature span {
+      display: block;
+      font-size: 11px;
+      color: var(--text-light);
+      line-height: 1.4;
+    }
+
+    .hero-feature strong {
+      font-size: 16px;
+      color: var(--accent);
+      display: block;
+      font-weight: 700;
+    }
+
+    .hero-image {
+      flex: 1;
+      position: relative;
+    }
+
+    .hero-image img {
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+
+    .sample-banner {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      background: var(--accent);
+      color: var(--white);
+      padding: 20px 25px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(249,99,0,0.3);
+    }
+
+    .sample-banner p {
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
+
+    .sample-banner .price {
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .sample-banner .price span {
+      font-size: 18px;
+    }
+
+    .sample-banner .shipping {
+      font-size: 14px;
+      font-weight: 700;
+      margin-top: 5px;
+    }
+
+    /* ========================================
+       セクション共通
+    ======================================== */
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-light {
+      background: var(--white);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-label {
+      display: inline-block;
+      background: var(--accent-light);
+      color: var(--primary);
+      padding: 5px 20px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .section-title {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 15px;
+      line-height: 1.4;
+    }
+
+    .section-subtitle {
+      font-size: 16px;
+      color: var(--text-light);
+    }
+
+    /* ========================================
+       お悩みセクション
+    ======================================== */
+    .problems {
+      background: var(--primary);
+      color: var(--white);
+      padding: 60px 0;
+    }
+
+    .problems-title {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 40px;
+    }
+
+    .problems-title span {
+      color: var(--accent-light);
+    }
+
+    .problem-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .problem-item {
+      background: rgba(255,255,255,0.1);
+      padding: 25px;
+      border-radius: 15px;
+      text-align: center;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .problem-item::before {
+      content: "😓";
+      font-size: 32px;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    /* ========================================
+       3形態セクション
+    ======================================== */
+    .types-intro {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 50px;
+    }
+
+    .types-intro p {
+      font-size: 18px;
+      color: var(--text-light);
+    }
+
+    .types-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-bottom: 50px;
+    }
+
+    .type-card {
+      background: var(--white);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: transform 0.3s;
+    }
+
+    .type-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .type-card-image {
+      aspect-ratio: 4/3;
+      overflow: hidden;
+    }
+
+    .type-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .type-card-content {
+      padding: 25px;
+      text-align: center;
+    }
+
+    .type-card-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .type-card-desc {
+      font-size: 14px;
+      color: var(--text-light);
+    }
+
+    .same-menu-badge {
+      background: var(--accent);
+      color: var(--white);
+      text-align: center;
+      padding: 20px;
+      border-radius: 15px;
+      font-size: 24px;
+      font-weight: 700;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ========================================
+       かんたん調理セクション
+    ======================================== */
+    .cooking-highlight {
+      padding: 30px;
+      text-align: left;
+      margin-bottom: 50px;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      border: 2px solid var(--accent);
+      border-radius: 15px;
+      background: var(--white);
+    }
+
+    .cooking-highlight-icon {
+      width: 50px;
+      height: 50px;
+      min-width: 50px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: var(--white);
+    }
+
+    .cooking-highlight h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: var(--accent);
+    }
+
+    .cooking-highlight p {
+      font-size: 16px;
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+
+    .cooking-steps-wrapper {
+      background: var(--bg-light);
+      padding: 40px 0;
+      margin: 0 -50vw 50px;
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+    }
+
+    .cooking-steps {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      gap: 10px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .cooking-step {
+      background: var(--white);
+      padding: 20px;
+      border-radius: 15px;
+      text-align: center;
+      flex: 1;
+      max-width: 200px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    }
+
+    .cooking-step-image {
+      width: 100%;
+      height: 120px;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 15px;
+      background: #f0f0f0;
+    }
+
+    .cooking-step-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .cooking-step-number {
+      background: var(--accent);
+      color: var(--white);
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      margin: 0 auto 10px;
+    }
+
+    .cooking-step-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .cooking-step-desc {
+      font-size: 12px;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    .cooking-arrow {
+      color: var(--accent);
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+    }
+
+    .technology-box {
+      background: var(--bg-light);
+      padding: 30px;
+      border-radius: 20px;
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .technology-content {
+      flex: 1;
+    }
+
+    .technology-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+
+    .technology-title span {
+      color: var(--accent);
+    }
+
+    .technology-desc {
+      font-size: 14px;
+      color: var(--text-light);
+    }
+
+    .technology-image {
+      width: 200px;
+    }
+
+    .technology-image img {
+      border-radius: 15px;
+    }
+
+    /* ========================================
+       メニューセクション
+    ======================================== */
+    .menu-count {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .menu-count-number {
+      font-size: 72px;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .menu-count-label {
+      font-size: 24px;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .menu-category {
+      margin-bottom: 40px;
+    }
+
+    .menu-category-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 3px solid var(--accent-light);
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .menu-item {
+      background: var(--white);
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    }
+
+    .menu-item-image {
+      aspect-ratio: 4/3;
+      overflow: hidden;
+    }
+
+    .menu-item-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .menu-item-content {
+      padding: 15px;
+    }
+
+    .menu-item-type {
+      display: inline-block;
+      background: var(--accent-light);
+      color: var(--primary);
+      padding: 3px 10px;
+      border-radius: 10px;
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .menu-item-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 5px;
+    }
+
+    .menu-item-desc {
+      font-size: 12px;
+      color: var(--text-light);
+    }
+
+    .menu-note {
+      text-align: center;
+      margin-top: 30px;
+      color: var(--text-light);
+      font-size: 14px;
+    }
+
+    /* ========================================
+       栄養セクション
+    ======================================== */
+    .nutrition-highlight {
+      padding: 30px;
+      text-align: center;
+      margin-top: 30px;
+      border: 2px solid var(--accent);
+      border-radius: 15px;
+      background: var(--white);
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .nutrition-highlight-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 15px;
+      font-size: 24px;
+      color: var(--white);
+    }
+
+    .nutrition-highlight h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: var(--accent);
+    }
+
+    .nutrition-highlight p {
+      font-size: 14px;
+      color: var(--text-light);
+    }
+
+    .nutrition-table-wrapper {
+      overflow-x: auto;
+    }
+
+    .nutrition-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--white);
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    }
+
+    .nutrition-table th,
+    .nutrition-table td {
+      padding: 18px 15px;
+      text-align: center;
+    }
+
+    .nutrition-table th {
+      background: var(--primary);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .nutrition-table td {
+      border-bottom: 1px solid #eee;
+      font-size: 15px;
+    }
+
+    .nutrition-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .nutrition-table td:first-child {
+      font-weight: 700;
+      color: var(--primary);
+      background: var(--bg-light);
+    }
+
+    .nutrition-note {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--text-light);
+    }
+
+    /* ========================================
+       設備セクション
+    ======================================== */
+    .equipment-intro {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 50px;
+    }
+
+    .equipment-intro p {
+      font-size: 18px;
+      color: var(--text-light);
+    }
+
+    .equipment-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+
+    .equipment-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      position: relative;
+    }
+
+    .equipment-badge {
+      position: absolute;
+      top: -10px;
+      right: 20px;
+      background: var(--accent);
+      color: var(--white);
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .equipment-image {
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .equipment-image img {
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    .equipment-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .equipment-desc {
+      font-size: 14px;
+      color: var(--text-light);
+    }
+
+    /* ========================================
+       価格セクション
+    ======================================== */
+    .price-section {
+      background: linear-gradient(135deg, var(--bg-light) 0%, #ffe4c4 100%);
+    }
+
+    .price-box {
+      background: var(--white);
+      border-radius: 30px;
+      padding: 50px;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+    }
+
+    .price-label {
+      font-size: 18px;
+      color: var(--text-light);
+      margin-bottom: 10px;
+    }
+
+    .price-condition {
+      display: inline-block;
+      background: var(--bg);
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .price-main {
+      margin-bottom: 30px;
+    }
+
+    .price-main .prefix {
+      font-size: 24px;
+      color: var(--primary);
+    }
+
+    .price-main .number {
+      font-size: 80px;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .price-main .suffix {
+      font-size: 32px;
+      color: var(--primary);
+    }
+
+    .price-shipping {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--white);
+      padding: 12px 25px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+
+    .price-shipping span {
+      font-weight: 700;
+    }
+
+    .price-note {
+      font-size: 12px;
+      color: var(--text-light);
+    }
+
+    /* ========================================
+       CTAセクション
+    ======================================== */
+    .cta-section {
+      background: var(--primary);
+      padding: 80px 0;
+    }
+
+    .cta-box {
+      background: var(--white);
+      border-radius: 30px;
+      padding: 50px;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .cta-label {
+      font-size: 14px;
+      color: var(--text-light);
+      margin-bottom: 10px;
+    }
+
+    .cta-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+
+    .cta-title span {
+      color: var(--accent);
+      font-size: 36px;
+    }
+
+    .cta-desc {
+      font-size: 16px;
+      color: var(--text-light);
+      margin-bottom: 30px;
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--accent);
+      color: var(--white);
+      padding: 20px 50px;
+      border-radius: 50px;
+      font-size: 20px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.3s;
+      box-shadow: 0 10px 30px rgba(249,99,0,0.3);
+    }
+
+    .cta-button:hover {
+      background: #e55a00;
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(249,99,0,0.4);
+    }
+
+    .cta-button::after {
+      content: "→";
+      margin-left: 10px;
+      font-size: 24px;
+    }
+
+    .cta-benefits {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .cta-benefit {
+      font-size: 14px;
+      color: var(--text-light);
+    }
+
+    .cta-benefit::before {
+      content: "✓";
+      color: var(--accent);
+      font-weight: 700;
+      margin-right: 5px;
+    }
+
+    /* ========================================
+       追従CTA
+    ======================================== */
+    .floating-cta {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 999;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    .floating-cta a {
+      display: block;
+      transition: transform 0.3s;
+    }
+
+    .floating-cta a:hover {
+      transform: scale(1.05);
+    }
+
+    .floating-cta img {
+      width: 280px;
+      height: auto;
+      filter: drop-shadow(0 10px 30px rgba(0,0,0,0.2));
+    }
+
+    /* ========================================
+       フッター
+    ======================================== */
+    .footer {
+      background: var(--primary);
+      color: var(--white);
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .footer-info {
+      font-size: 14px;
+      opacity: 0.8;
+      margin-bottom: 20px;
+    }
+
+    .footer-copyright {
+      font-size: 12px;
+      opacity: 0.6;
+    }
+
+    /* ========================================
+       レスポンシブ
+    ======================================== */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 100px 0 40px;
+      }
+
+      .hero-inner {
+        flex-direction: column;
+      }
+
+      .hero-main-title {
+        font-size: 28px;
+      }
+
+      .hero-features {
+        justify-content: center;
+      }
+
+      .hero-feature {
+        padding: 10px 14px;
+      }
+
+      .hero-feature span {
+        font-size: 10px;
+      }
+
+      .hero-feature strong {
+        font-size: 14px;
+      }
+
+      .sample-banner {
+        position: relative;
+        bottom: auto;
+        right: auto;
+        margin-top: 20px;
+      }
+
+      .problem-list {
+        grid-template-columns: 1fr;
+      }
+
+      .types-grid,
+      .menu-grid,
+      .equipment-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cooking-steps-wrapper {
+        padding: 30px 15px;
+      }
+
+      .cooking-steps {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .cooking-step {
+        max-width: 100%;
+        display: flex;
+        align-items: center;
+        text-align: left;
+        gap: 15px;
+        padding: 15px;
+      }
+
+      .cooking-step-image {
+        width: 80px;
+        height: 80px;
+        flex-shrink: 0;
+        margin-bottom: 0;
+      }
+
+      .cooking-step-number {
+        margin: 0 0 5px 0;
+      }
+
+      .cooking-arrow {
+        transform: rotate(90deg);
+        display: none;
+      }
+
+      .technology-box {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .section-title {
+        font-size: 24px;
+      }
+
+      .price-main .number {
+        font-size: 56px;
+      }
+
+      .cta-title {
+        font-size: 22px;
+      }
+
+      .cta-title span {
+        font-size: 28px;
+      }
+
+      .cta-benefits {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .floating-cta {
+        bottom: 10px;
+        right: 10px;
+      }
+
+      .floating-cta img {
+        width: 220px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ヒーローセクション -->
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-content">
+      <span class="hero-badge">特別養護老人ホーム向け</span>
+      <p class="hero-subtitle">創業50年</p>
+      <h1 class="hero-title">特養の<span class="highlight">「かかりつけ医」</span>が<br>たどり着いた冷凍弁当</h1>
+
+      <div class="hero-features">
+        <div class="hero-feature">
+          <span>常食・やわらか・ムース</span>
+          <strong>3形態同一献立</strong>
+        </div>
+        <div class="hero-feature">
+          <span>管理栄養士監修</span>
+          <strong>栄養基準</strong>
+        </div>
+        <div class="hero-feature">
+          <span>少量からご注文OK</span>
+          <strong>40食〜</strong>
+        </div>
+      </div>
+
+      <a href="#contact" class="btn btn-primary" style="font-size: 18px; padding: 18px 40px;">
+        まずは無料サンプルでお試し →
+      </a>
+    </div>
+
+    <div class="hero-image">
+      <img src="img/hero-image.png" alt="ハッピーダイニングのお弁当" style="border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
+      <div style="position: absolute; bottom: -20px; right: -10px; background: linear-gradient(135deg, #e74c3c, #c0392b); color: white; padding: 15px 20px; border-radius: 10px; box-shadow: 0 5px 20px rgba(231, 76, 60, 0.4); transform: rotate(3deg);">
+        <p style="margin: 0; font-size: 14px; font-weight: bold;">お重も無償で</p>
+        <p style="margin: 5px 0 0; font-size: 18px; font-weight: bold;">人数分ご提供!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- お悩みセクション（一時非表示）
+<section class="problems">
+  <div class="container">
+    <h2 class="problems-title">こんな<span>お悩み</span>ありませんか？</h2>
+    <div class="problem-list">
+      <div class="problem-item">
+        調理スタッフの<br>人手が足りない…
+      </div>
+      <div class="problem-item">
+        食事の種類を増やしたいけど<br>対応が難しい…
+      </div>
+      <div class="problem-item">
+        利用者様の嚥下状態に合わせた<br>食事を用意したい…
+      </div>
+    </div>
+  </div>
+</section>
+-->
+
+<!-- 3形態セクション -->
+<section class="section section-light" id="types">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">選べる3形態</span>
+      <h2 class="section-title">常食・一口やわらか食・ムース食<br>すべて同じ献立でご提供</h2>
+      <p class="section-subtitle">利用者様の嚥下状態に合わせて、3つの形態からお選びいただけます</p>
+      <img src="img/image20.png" alt="3形態同一メニュー" style="max-width: 350px; margin: 30px auto 0; display: block;">
+    </div>
+
+    <div class="types-grid">
+      <div class="type-card">
+        <div class="type-card-image">
+          <img src="img/image11.jpg" alt="常食">
+        </div>
+        <div class="type-card-content">
+          <h3 class="type-card-title">常食</h3>
+          <p class="type-card-desc">通常の食事形態。しっかり噛める方向けのスタンダードなお弁当です。</p>
+        </div>
+      </div>
+
+      <div class="type-card">
+        <div class="type-card-image">
+          <img src="img/image12.jpg" alt="一口やわらか食">
+        </div>
+        <div class="type-card-content">
+          <h3 class="type-card-title">一口やわらか食</h3>
+          <p class="type-card-desc">食材を一口サイズにカット。噛む力が弱くなった方でも食べやすい形態です。</p>
+        </div>
+      </div>
+
+      <div class="type-card">
+        <div class="type-card-image">
+          <img src="img/image13.jpg" alt="ムース食">
+        </div>
+        <div class="type-card-content">
+          <h3 class="type-card-title">ムース食</h3>
+          <p class="type-card-desc">歯茎や舌で潰せる柔らかさ。嚥下が困難な方でも安心してお召し上がりいただけます。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="same-menu-badge">
+      3形態すべて同一献立・同一栄養価！
+    </div>
+  </div>
+</section>
+
+<!-- かんたん調理セクション -->
+<section class="section" id="cooking">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">調理方法</span>
+      <h2 class="section-title">届いたら温めるだけ。調理いらずでかんたん</h2>
+      <p class="section-subtitle">ハッピーダイニングの冷凍弁当は、専用スチーマーに冷凍弁当を入れてボタンを押すだけ。<br>調理の手間がないから、少人数のスタッフでも無理なく運用できます。</p>
+    </div>
+
+    <div style="display: flex; gap: 30px; align-items: center; margin-bottom: 50px; flex-wrap: wrap;">
+      <div style="flex: 1; min-width: 280px;">
+        <img src="img/image14.png" alt="スチーマーで調理するスタッフ" style="width: 100%; border-radius: 15px;">
+      </div>
+      <div style="flex: 1; min-width: 280px;">
+        <div class="cooking-highlight" style="margin-bottom: 0;">
+          <div class="cooking-highlight-icon">✓</div>
+          <div class="cooking-highlight-content">
+            <h3>調理スタッフの負担を大幅軽減</h3>
+            <ul style="margin: 0; padding-left: 20px; color: var(--accent); line-height: 2; font-weight: 600;">
+              <li>50名分を一人で用意が可能！</li>
+              <li>スチーム開始1時間で用意が可能</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="text-align: center; font-size: 24px; color: var(--primary); margin-bottom: 20px;">スチーマーの操作方法</h3>
+
+    <div class="cooking-steps-wrapper">
+      <div class="cooking-steps">
+        <div class="cooking-step">
+          <div class="cooking-step-image">
+            <img src="img/step1.png" alt="水をいれる">
+          </div>
+          <div class="cooking-step-number">1</div>
+          <p class="cooking-step-title">水をいれる</p>
+          <p class="cooking-step-desc">給水口より水を入れて下さい。水をこぼさないように注意して下さい。約4.5ℓの水が入ります。</p>
+        </div>
+        <span class="cooking-arrow">→</span>
+        <div class="cooking-step">
+          <div class="cooking-step-image">
+            <img src="img/step2.png" alt="商品をいれる">
+          </div>
+          <div class="cooking-step-number">2</div>
+          <p class="cooking-step-title">商品をいれる</p>
+          <p class="cooking-step-desc">各棚板に加温する食品を陳列してください。弁当は最大28個、惣菜約40人分が入ります。</p>
+        </div>
+        <span class="cooking-arrow">→</span>
+        <div class="cooking-step">
+          <div class="cooking-step-image">
+            <img src="img/step3.png" alt="電源をいれる">
+          </div>
+          <div class="cooking-step-number">3</div>
+          <p class="cooking-step-title">電源をいれる</p>
+          <p class="cooking-step-desc">電源ブレーカーを「入」にして下さい。しっかり扉がしまっていることを確認してください。</p>
+        </div>
+        <span class="cooking-arrow">→</span>
+        <div class="cooking-step">
+          <div class="cooking-step-image">
+            <img src="img/step4.png" alt="運転開始">
+          </div>
+          <div class="cooking-step-number">4</div>
+          <p class="cooking-step-title">運転開始</p>
+          <p class="cooking-step-desc">問題なければ、運転ボタンを押して下さい。加温が開始され、庫内温度が表示されます。</p>
+        </div>
+        <span class="cooking-arrow">→</span>
+        <div class="cooking-step">
+          <div class="cooking-step-image">
+            <img src="img/step5.png" alt="完成・保温">
+          </div>
+          <div class="cooking-step-number">5</div>
+          <p class="cooking-step-title">完成・保温</p>
+          <p class="cooking-step-desc">加温された食品が出来上がります。大変熱くなっておりますのでミトンなどをご使用下さい。</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin: 50px 0 30px;">
+      <h3 style="font-size: 22px; color: var(--primary); margin-bottom: 10px;">やわらかさを実現する技術</h3>
+      <p style="font-size: 16px; color: var(--text-light);">やわらか食・ムース食のやわらかさは、「凍結含侵法」という製造技術で実現しています。</p>
+    </div>
+
+    <div class="technology-box">
+      <div class="technology-content">
+        <h3 class="technology-title"><span>凍結含侵法</span>とは</h3>
+        <p class="technology-desc" style="margin-bottom: 15px;">
+          食材の中に「<strong style="color: var(--accent);">酵素等の物質</strong>」を急速にしみ込ませる技術です。
+        </p>
+        <ul style="font-size: 14px; color: var(--text-light); line-height: 1.8; padding-left: 20px;">
+          <li style="margin-bottom: 8px;">食材の組織を分解する酵素をしみ込ませると、食材そのままの形を保ったまま、歯茎や舌で潰せるほど軟らかい食材を作ることができます。</li>
+          <li style="margin-bottom: 8px;">革新的なやわらか食製造技術として実用化されています。</li>
+          <li>これまでミキサー食やキザミ食が主流であった介護食の世界に大きなインパクトを与え、「食のバリアフリー」を実現する最新技術として、その利用が広がりつつあります。</li>
+        </ul>
+      </div>
+      <div class="technology-image">
+        <img src="img/image2.jpg" alt="凍結含侵法 - スプーンで潰せるやわらかさ">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- メニューセクション -->
+<section class="section section-light" id="menu">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">豊富なメニュー</span>
+      <h2 class="section-title"><span style="font-size: 42px; color: var(--accent);">64</span>種類のメニューをご用意</h2>
+      <p class="section-subtitle">利用者様ごとに常食・やわらか食・ムース食を自由に組み合わせてご注文OK！<br>月間献立メニューに沿ったご利用も可能です</p>
+    </div>
+
+    <div class="menu-category">
+      <h3 class="menu-category-title">朝食メニュー例</h3>
+      <div class="menu-grid">
+        <div class="menu-item">
+          <div class="menu-item-image">
+            <img src="img/image4.jpg" alt="常食 朝食">
+          </div>
+          <div class="menu-item-content">
+            <span class="menu-item-type">常食</span>
+            <p class="menu-item-name">ポトフセット / 揚げなすのトマト煮 / 肉団子</p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-image">
+            <img src="img/image4.jpg" alt="一口やわらか食 朝食">
+          </div>
+          <div class="menu-item-content">
+            <span class="menu-item-type">一口やわらか</span>
+            <p class="menu-item-name">ポトフセット / なすのトマト煮 / 肉団子</p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-image">
+            <img src="img/image4.jpg" alt="ムース食 朝食">
+          </div>
+          <div class="menu-item-content">
+            <span class="menu-item-type">ムース</span>
+            <p class="menu-item-name">ポトフセット / なすのトマト煮 / 肉団子</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-category">
+      <h3 class="menu-category-title">昼食・夕食メニュー例</h3>
+      <div class="menu-grid">
+        <div class="menu-item">
+          <div class="menu-item-image">
+            <img src="img/image21.jpg" alt="常食 昼夕食">
+          </div>
+          <div class="menu-item-content">
+            <span class="menu-item-type">常食</span>
+            <p class="menu-item-name">八宝菜セット / 中華風肉団子 / 彩りたまごよせ</p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-image">
+            <img src="img/image21.jpg" alt="一口やわらか食 昼夕食">
+          </div>
+          <div class="menu-item-content">
+            <span class="menu-item-type">一口やわらか</span>
+            <p class="menu-item-name">八宝菜セット / 中華風肉団子 / 彩りたまごよせ</p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-image">
+            <img src="img/image21.jpg" alt="ムース食 昼夕食">
+          </div>
+          <div class="menu-item-content">
+            <span class="menu-item-type">ムース</span>
+            <p class="menu-item-name">八宝菜セット / 中華風肉団子 / 彩りたまごよせ</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="menu-note">※メニューは時期により変更になる場合がございます</p>
+  </div>
+</section>
+
+<!-- 栄養セクション -->
+<section class="section" id="nutrition">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">栄養バランス</span>
+      <h2 class="section-title">管理栄養士監修の栄養基準</h2>
+      <p class="section-subtitle">ハッピーダイニングでは、以下の栄養価基準を設けています</p>
+    </div>
+
+    <div class="nutrition-table-wrapper">
+      <table class="nutrition-table">
+        <thead>
+          <tr>
+            <th>食事</th>
+            <th>エネルギー</th>
+            <th>たんぱく質</th>
+            <th>脂質</th>
+            <th>炭水化物</th>
+            <th>食塩相当量</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>朝食</td>
+            <td>200kcal</td>
+            <td>8g</td>
+            <td>10g</td>
+            <td>15g</td>
+            <td>1.5g</td>
+          </tr>
+          <tr>
+            <td>昼食・夕食</td>
+            <td>245kcal</td>
+            <td>10g</td>
+            <td>12g</td>
+            <td>20g</td>
+            <td>1.7g</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="nutrition-highlight">
+      <div class="nutrition-highlight-icon">✓</div>
+      <h3>常食・一口・ムース、すべて同一栄養価</h3>
+      <p>食事形態が変わっても、同じ栄養価を摂取できます</p>
+    </div>
+  </div>
+</section>
+
+<!-- 設備セクション -->
+<section class="section section-light" id="equipment">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">充実のサポート</span>
+      <h2 class="section-title">必要な設備はすべて無償貸与</h2>
+      <p class="section-subtitle">初期費用0円でスタートできます</p>
+    </div>
+
+    <div class="equipment-intro">
+      <p>加温スチーマー、冷凍ストッカー、お重容器まで、<br>すべて無償でご提供いたします。</p>
+    </div>
+
+    <div class="equipment-grid">
+      <div class="equipment-card">
+        <span class="equipment-badge">無償貸与</span>
+        <div class="equipment-image">
+          <img src="img/image3.png" alt="加温スチーマー">
+        </div>
+        <h3 class="equipment-title">加温スチーマー</h3>
+        <p class="equipment-desc">冷凍弁当を温めるための専用機器。<br>50名分を一度に調理できます。</p>
+      </div>
+
+      <div class="equipment-card">
+        <span class="equipment-badge">無償貸与</span>
+        <div class="equipment-image">
+          <img src="img/image1.png" alt="冷凍ストッカー">
+        </div>
+        <h3 class="equipment-title">冷凍ストッカー</h3>
+        <p class="equipment-desc">大容量の冷凍庫。<br>まとめて保管できるので在庫管理も楽々。</p>
+      </div>
+
+      <div class="equipment-card">
+        <span class="equipment-badge">無償貸与</span>
+        <div class="equipment-image">
+          <img src="img/image6.png" alt="お重容器（黒）">
+        </div>
+        <h3 class="equipment-title">お重容器（黒）</h3>
+        <p class="equipment-desc">高級感のあるお重タイプの容器。<br>人数分を無償でご提供します。</p>
+      </div>
+
+      <div class="equipment-card">
+        <span class="equipment-badge">無償貸与</span>
+        <div class="equipment-image">
+          <img src="img/image10.png" alt="お重容器（茶）">
+        </div>
+        <h3 class="equipment-title">お重容器（茶）</h3>
+        <p class="equipment-desc">落ち着いた茶色のお重。<br>毎日のお食事に最適です。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 価格セクション -->
+<section class="section price-section" id="price">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">料金案内</span>
+      <h2 class="section-title">安心の価格でご提供</h2>
+    </div>
+
+    <div class="price-box">
+      <p class="price-label">少量からOK / 1ケース40食</p>
+
+      <div class="price-main">
+        <span class="prefix">1食</span>
+        <span class="number">330</span>
+        <span class="suffix">円〜</span>
+      </div>
+
+      <div class="price-shipping">
+        しかも<span>1ケースから送料無料！</span>
+      </div>
+
+      <p class="price-note">
+        ※北海道・沖縄県については別途送料がかかります。<br>
+        ※全国47都道府県どこでも配達可能です。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- CTAセクション -->
+<section class="cta-section" id="contact">
+  <div class="container">
+    <div class="cta-box">
+      <p class="cta-label">高齢者向け介護施設・福祉施設のお客様</p>
+      <h2 class="cta-title">調理済み冷凍食材の<br><span>無料サンプル</span>で<br>手軽さとおいしさを実感！</h2>
+      <p class="cta-desc">
+        まずは無料でお試しください。<br>
+        専門スタッフが導入から運用までしっかりサポートいたします。
+      </p>
+      <a href="#" class="cta-button">無料サンプルを申込む</a>
+
+      <div class="cta-benefits">
+        <span class="cta-benefit">サンプル無料</span>
+        <span class="cta-benefit">送料無料</span>
+        <span class="cta-benefit">導入サポート付き</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 追従CTA -->
+<div class="floating-cta">
+  <a href="#contact">
+    <img src="img/floating-cta.png" alt="無料サンプルでお試し">
+  </a>
+</div>
+
+</body>
+</html>
